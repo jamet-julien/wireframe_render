@@ -8,7 +8,7 @@ function animate(time){
   camera.pos.z += 0.1;
 
   scene.forEach(mesh => mesh.update(time));
-  render(scene, camera);
+  render( scene, camera);
 
   requestAnimationFrame(animate);
 }
