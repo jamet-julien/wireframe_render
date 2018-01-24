@@ -17,6 +17,7 @@ const canvas         = document.getElementById('paper'),
       scene          = [],
       render         = createRender( canvas),
       cubeMesh       = toMesh( cube),
+      cubeMesh2      = toMesh( cube),
       pyramidMesh    = toMesh( pyramid),
       camera         = Camera({z:200}, 12);
 
@@ -30,6 +31,17 @@ cubeMesh.update = function( time){
 
 };
 
+cubeMesh2.color = '#0F0';
+cubeMesh2.update = function( time){
+
+  this.position.x = Math.sin(time / 100) * 10;
+  this.position.y = Math.sin(time / 800) * 100;
+  this.rotation.y -= .05;
+  this.rotation.x += .05;
+  this.rotation.z -= .05;
+
+};
+
 pyramidMesh.color = '#F0F';
 pyramidMesh.update = function( time){
   this.position.x = Math.sin(time / 500) * 20;
@@ -39,6 +51,7 @@ pyramidMesh.update = function( time){
 };
 
 scene.push( cubeMesh);
+scene.push( cubeMesh2);
 scene.push( pyramidMesh);
 
 animate(0);
